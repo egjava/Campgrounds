@@ -43,7 +43,16 @@ app.use(methodOverride("_method"));
  
 
 app.use(bodyParser.urlencoded({extended:true}));
-mongoose.connect("mongodb://localhost:27017/camp",{useNewUrlParser:true, useUnifiedTopology: true});
+//mongoose.connect("mongodb://localhost:27017/camp",{ useNewUrlParser:true, useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://elizabeth:Elizabeth23@cluster0.pakyn.mongodb.net/camp?retryWrites=true&w=majority",{
+    useNewUrlParser:true, 
+    useCreateIndex: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log("Connected to DB!");
+}).catch(err => {
+    console.log('Error:',err.message);
+});
 app.use(express.static(__dirname+ "/public"));
 app.use(flash());
 app.use(function(req,res,next){
