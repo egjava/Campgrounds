@@ -71,4 +71,4 @@ app.use("/campgrounds/:id/reviews", reviewRoutes);
 
 
 
-app.listen(8020);
+app.listen(process.env.PORT, '0.0.0.0');
