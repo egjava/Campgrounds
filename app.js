@@ -43,8 +43,8 @@ app.use(methodOverride("_method"));
  
 
 app.use(bodyParser.urlencoded({extended:true}));
-//mongoose.connect("mongodb://localhost:27017/camp",{ useNewUrlParser:true, useUnifiedTopology: true});
-mongoose.connect("mongodb+srv://elizabeth:Elizabeth23@cluster0.pakyn.mongodb.net/camp?retryWrites=true&w=majority",{
+
+mongoose.connect(process.env.DATABASEURL,{
     useNewUrlParser:true, 
     useCreateIndex: true,
     useUnifiedTopology: true
